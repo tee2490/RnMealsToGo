@@ -4,21 +4,20 @@ import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 
 const RestaurantCard = styled(Card)`
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
 const RestaurantCardCover = styled(Card.Cover)`
-  padding: 20px;
+  padding: ${(props) => props.theme.space[3]};
   background-color: white;
 `;
 
 const Title = styled(Text)`
-  padding: 16px;
-  color: red;
+  padding: ${(props) => props.theme.space[3]};
+  color: ${(props) => props.theme.colors.ui.primary};
 `;
- 
 
-export default function RestaurantInfoCard({...restaurant}) {
+export default function RestaurantInfoCard({ ...restaurant }) {
   const {
     name = "Some Restaurant",
     icon,
@@ -29,8 +28,8 @@ export default function RestaurantInfoCard({...restaurant}) {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily,
-  } = restaurant
-     
+  } = restaurant;
+
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
@@ -38,6 +37,3 @@ export default function RestaurantInfoCard({...restaurant}) {
     </RestaurantCard>
   );
 }
-
-
-

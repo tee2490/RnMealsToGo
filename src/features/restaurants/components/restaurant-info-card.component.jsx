@@ -15,7 +15,7 @@ import {
   Address,
 } from "./restaurant-info-card.styles";
 
-export default function RestaurantInfoCard({ ...restaurant }) {
+export default function RestaurantInfoCard({ restaurant={} }) {
   const {
     name = "Some Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",

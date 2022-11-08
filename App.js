@@ -7,6 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
+import { LocationContextProvider } from "./src/services/location/location.context";
 
 import {
   useFonts as useOswald,
@@ -62,6 +63,7 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+      <LocationContextProvider>
         <RestaurantsContextProvider>
           <NavigationContainer>
             <Tab.Navigator screenOptions={createScreenOptions}>
@@ -71,6 +73,7 @@ export default function App() {
             </Tab.Navigator>
           </NavigationContainer>
         </RestaurantsContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

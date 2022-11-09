@@ -15,7 +15,7 @@ import {
   Address,
 } from "./restaurant-info-card.styles";
 
-export default function RestaurantInfoCard({ restaurant={} }) {
+export default function RestaurantInfoCard({ restaurant = {} }) {
   const {
     name = "Some Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -26,6 +26,7 @@ export default function RestaurantInfoCard({ restaurant={} }) {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeId,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -37,8 +38,13 @@ export default function RestaurantInfoCard({ restaurant={} }) {
         <Text variant="label">{name}</Text>
         <Section>
           <Rating>
-            {ratingArray.map((_, index) => (
-              <SvgXml key={index} xml={star} width={20} height={20} />
+            {ratingArray.map((_, i) => (
+              <SvgXml
+                key={`star-${placeId}-${i}`}
+                xml={star}
+                width={20}
+                height={20}
+              />
             ))}
           </Rating>
           <SectionEnd>

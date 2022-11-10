@@ -1,4 +1,4 @@
-import { FlatList,TouchableOpacity } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native";
 import React, { useContext } from "react";
 import styled from "styled-components/native";
 import RestaurantInfoCard from "../components/restaurant-info-card.component";
@@ -39,7 +39,13 @@ export default function RestaurantsScreen({ navigation }) {
         data={restaurants}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity  onPress={() => navigation.navigate("RestaurantDetail")}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("RestaurantDetail", {
+                  restaurant: item,
+                })
+              }
+            >
               <Spacer position="bottom" size="large">
                 <RestaurantInfoCard restaurant={item} />
               </Spacer>

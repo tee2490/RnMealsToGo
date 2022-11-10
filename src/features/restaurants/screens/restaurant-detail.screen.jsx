@@ -1,11 +1,12 @@
 import React from "react";
-import { Text } from "react-native";
 import { SafeArea } from "../../../components/utility/safe-area.component";
+import RestaurantInfoCard from "../components/restaurant-info-card.component";
 
-export default function RestaurantDetailScreen() {
+export default function RestaurantDetailScreen({ route }) {
+  const { restaurant } = route.params;
   return (
     <SafeArea>
-      <Text>Restaurant details</Text>
+      <RestaurantInfoCard restaurant={restaurant} />
     </SafeArea>
   );
 }

@@ -1,4 +1,4 @@
-import { FlatList } from "react-native";
+import { FlatList,TouchableOpacity } from "react-native";
 import React, { useContext } from "react";
 import styled from "styled-components/native";
 import RestaurantInfoCard from "../components/restaurant-info-card.component";
@@ -23,7 +23,7 @@ const LoadingContainer = styled.View`
   left: 50%;
 `;
 
-export default function RestaurantsScreen() {
+export default function RestaurantsScreen({ navigation }) {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
   //console.log(error);
 
@@ -39,9 +39,11 @@ export default function RestaurantsScreen() {
         data={restaurants}
         renderItem={({ item }) => {
           return (
-            <Spacer position="bottom" size="large">
-              <RestaurantInfoCard restaurant={item} />
-            </Spacer>
+            <TouchableOpacity  onPress={() => navigation.navigate("RestaurantDetail")}>
+              <Spacer position="bottom" size="large">
+                <RestaurantInfoCard restaurant={item} />
+              </Spacer>
+            </TouchableOpacity>
           );
         }}
         keyExtractor={(item) => item.name}

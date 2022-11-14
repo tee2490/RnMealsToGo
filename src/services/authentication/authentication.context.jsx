@@ -57,6 +57,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       .signOut(firebase.getAuth)
       .then(() => {
         setUser(null);
+        setError(null);
       })
       .catch((e) => console.log(e));
   };

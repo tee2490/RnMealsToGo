@@ -21,6 +21,7 @@
     "expo": "~46.0.16",
     "expo-camera": "~12.3.0",
     "expo-font": "~10.2.0",
+    "expo-image-manipulator": "~10.4.0",
     "expo-status-bar": "~1.4.0",
     "firebase": "^9.14.0",
     "lottie-react-native": "5.1.3",

@@ -1,9 +1,8 @@
 import camelize from "camelize";
-
-const host = "https://50ae-223-24-93-95.ap.ngrok.io";
+import { host } from "../../utils/env";
 
 export const locationRequest = (searchTerm) => {
-  return fetch(`${host}/mealstogo-ba2ae/us-central1/geocode?city=${searchTerm}`)
+  return fetch(`${host}/geocode?city=${searchTerm}`)
     .then((res) => {
       return res.json();
     })

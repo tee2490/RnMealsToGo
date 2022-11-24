@@ -1,5 +1,5 @@
 const liveHost = "https://us-central1-mealstogo-ba2ae.cloudfunctions.net";
-const baseUrl = "https://245f-202-28-123-196.ap.ngrok.io";
+const baseUrl = "https://b0a5-223-24-92-249.ap.ngrok.io";
 const localHost = `${baseUrl}/mealstogo-ba2ae/us-central1`
 
 export const isDevelopment = process.env.NODE_ENV === "development";

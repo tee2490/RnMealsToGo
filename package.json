@@ -36,6 +36,7 @@
     "react-native-svg": "12.3.0",
     "react-native-vector-icons": "^9.2.0",
     "react-native-webview": "11.23.0",
+    "stripe-client": "^1.1.5",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

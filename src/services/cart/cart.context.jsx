@@ -10,6 +10,18 @@ export const CartContextProvider = ({ children }) => {
 
   const [cart, setCart] = useState([]);
   const [restaurant, setRestaurant] = useState(null);
+  const [sum, setSum] = useState(0);
+
+  useEffect(() => {
+    if (!cart.length) {
+      setSum(0);
+      return;
+    }
+    const newSum = cart.reduce((acc, { price }) => {
+      return (acc += price);
+    }, 0);
+    setSum(newSum);
+  }, [cart]);
 
   const add = (item, rst) => {
     //rst คือร้านอาหารล่าสุดที่ถูกเลือก
@@ -33,6 +45,7 @@ export const CartContextProvider = ({ children }) => {
         clearCart: clear,
         restaurant,
         cart,
+        sum,
       }}
     >
       {children}

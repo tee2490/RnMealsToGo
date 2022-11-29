@@ -1,23 +1,22 @@
 import React from "react";
 import { LiteCreditCardInput } from "react-native-credit-card-input-plus";
 import createStripe from "stripe-client";
+import { cardTokenRequest } from "../../../services/checkout/checkout.service";
 
-const stripe = createStripe(
-  "pk_test_51M9JKILEJFIvBBF2XkujZkrsfTEzCwhb6Mju4cg46E92bFLupZh7FxanSKa17WqSqpfl3WuQ1K3AL2VbK1wCrg9200hagD6XvF")
-
-export const CreditCardInput = () => {
+export const CreditCardInput = ({name = "Tee"}) => {
   const onChange = async (formData) => {
     const { values, status } = formData;
     const isIncomplete = Object.values(status).includes("incomplete");
     console.log(isIncomplete);
+    const expiry = values.expiry.split("/");
     const card = {
-      number: "4242424242424242",
-      exp_month: "02",
-      exp_year: "27",
-      cvc: "244",
-      name: "Tee",
+      number: values.number,
+      exp_month: expiry[0],
+      exp_year: expiry[1],
+      cvc: values.cvc,
+      name: name,
     };
-    const info = await stripe.createToken({ card });
+    const info = await cardTokenRequest(card);
     console.log(info);
   };
   return <LiteCreditCardInput onChange={onChange} />;
